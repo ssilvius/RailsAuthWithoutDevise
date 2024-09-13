@@ -43,6 +43,14 @@ group :development, :test do
 
   # Omakase Ruby styling [https://github.com/rails/rubocop-rails-omakase/]
   gem "rubocop-rails-omakase", require: false
+  
+  # testing
+  gem "capybara"
+  gem "factory_bot_rails", "~> 6.4.2"
+  gem "ffaker"
+  gem "rspec-rails"
+  gem "shoulda-matchers"
+  gem "timecop"
 end
 
 group :development do
