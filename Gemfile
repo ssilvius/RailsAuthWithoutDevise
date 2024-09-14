@@ -49,6 +49,7 @@ group :development, :test do
   gem "factory_bot_rails", "~> 6.4.2"
   gem "ffaker"
   gem "rspec-rails"
+  gem "selenium-webdriver"
   gem "shoulda-matchers"
   gem "timecop"
 end
