@@ -16,7 +16,7 @@ RSpec.describe User, type: :model do
 
     it { expect(user).to be_valid }
   end
-  
+
   context 'with a valid factory and valididated email' do
     let(:user) { create(:user, :validated_email) }
 
@@ -30,12 +30,12 @@ RSpec.describe User, type: :model do
 
     it { expect(user).to be_valid }
     it { expect(user.cookies_accepted).to be true }
-    it { expect(user.email_validated).to be false } 
+    it { expect(user.email_validated).to be false }
   end
 
   context 'with an invalid factory' do
     let(:user) { create(:user, password: 'nah') }
 
-    it { expect{ user }.to raise_error(ActiveRecord::RecordInvalid) }
+    it { expect { user }.to raise_error(ActiveRecord::RecordInvalid) }
   end
 end

@@ -20,4 +20,6 @@ RSpec.configure do |config|
   config.before(:each, type: :request) do
     host! 'localhost:3000'
   end
+
+  config.include Rails.application.routes.url_helpers, type: :request
 end

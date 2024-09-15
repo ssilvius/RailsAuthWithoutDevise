@@ -1,0 +1,25 @@
+<div class="max-w-md mx-auto mt-10">
+  <h2 class="text-2xl font-bold mb-5 text-center">Sign Up</h2>
+
+  <%= form_with(model: @user, url: register_path, local: false, data: { turbo: true, controller: "registration", action: "turbo:submit-end->registration#handleSubmit" }) do |f| %>
+    <div class="mb-4">
+      <%= f.label :email, class: "block text-gray-700 text-sm font-bold mb-2" %>
+      <%= f.email_field :email, required: true, class: "shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline", data: { registration_target: "input", field: "email" } %>
+      <p class="text-red-500 text-xs italic mt-1 hidden" data-registration-target="error" data-field="email"></p>
+    </div>
+
+    <div class="mb-4">
+      <%= f.label :password, class: "block text-gray-700 text-sm font-bold mb-2" %>
+      <%= f.password_field :password, required: true, class: "shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline", data: { registration_target: "input", field: "password" } %>
+      <p class="text-red-500 text-xs italic mt-1 hidden" data-registration-target="error" data-field="password"></p>
+    </div>
+
+    <div class="mb-6">
+      <%= f.label :password_confirmation, class: "block text-gray-700 text-sm font-bold mb-2" %>
+      <%= f.password_field :password_confirmation, required: true, class: "shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline", data: { registration_target: "input", field: "password_confirmation" } %>
+      <p class="text-red-500 text-xs italic mt-1 hidden" data-registration-target="error" data-field="password_confirmation"></p>
+    </div>
+
+    <%= f.submit "Sign Up", class: "w-full bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" %>
+  <% end %>
+</div>
