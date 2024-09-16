@@ -110,7 +110,7 @@ GEM
     ffaker (2.23.0)
     globalid (1.2.1)
       activesupport (>= 6.1)
-    i18n (1.14.5)
+    i18n (1.14.6)
       concurrent-ruby (~> 1.0)
     importmap-rails (2.0.1)
       actionpack (>= 6.0.0)
@@ -153,7 +153,7 @@ GEM
       ast (~> 2.4.1)
       racc
     pg (1.5.7)
-    propshaft (0.9.1)
+    propshaft (1.0.0)
       actionpack (>= 7.0.0)
       activesupport (>= 7.0.0)
       rack
