@@ -3,9 +3,7 @@ class CreateUsers < ActiveRecord::Migration[7.2]
     create_table :users, id: :uuid do |t|
       t.string :email
       t.string :password_digest
-      t.boolean :email_validated,     default: false
       t.datetime :email_validated_at
-      t.boolean :cookies_accepted,    default: false
       t.datetime :cookies_accepted_at
 
       t.timestamps

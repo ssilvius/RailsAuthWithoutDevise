@@ -7,6 +7,7 @@ RSpec.describe User, type: :model do
 
   context 'with active record' do
     it { should have_db_index(:email).unique }
+    it { should validate_presence_of(:email) }
     it { should validate_uniqueness_of(:email).ignoring_case_sensitivity }
     it { should encrypt(:email).deterministic(true) }
   end
@@ -18,19 +19,19 @@ RSpec.describe User, type: :model do
   end
 
   context 'with a valid factory and valididated email' do
-    let(:user) { create(:user, :validated_email) }
+    let(:now) { Timecop.freeze(Time.now.utc.iso8601) }
+    let(:user) { create(:user, email_validated_at: now) }
 
     it { expect(user).to be_valid }
-    it { expect(user.email_validated).to be true }
-    it { expect(user.cookies_accepted).to be false }
+    it { expect(user.email_validated_at).to eq(now) }
   end
 
   context 'with a valid factory and accepted cookies' do
-    let(:user) { create(:user, :accepted_cookies) }
+    let(:now) { Timecop.freeze(Time.now.utc.iso8601) }
+    let(:user) { create(:user, cookies_accepted_at: now) }
 
     it { expect(user).to be_valid }
-    it { expect(user.cookies_accepted).to be true }
-    it { expect(user.email_validated).to be false }
+    it { expect(user.cookies_accepted_at).to eq(now) }
   end
 
   context 'with an invalid factory' do
