@@ -10,9 +10,8 @@ RSpec.describe "Registrations", type: :request do
 
   describe "POST /register" do
     it "returns http success" do
-      post "/register", params: {user: { email: FFaker::Internet.email, password: 'password', password_confirmation: 'password' } }
+      post "/register", params: { user: { email: FFaker::Internet.email, password: 'password', password_confirmation: 'password' } }
       expect(response).to redirect_to(dashboard_path)
     end
   end
-
 end

@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   get "/dashboard" => "dashboard#index"
   root "marketing#index"
-  
+
   get "/register" => "registration#new"
   post "/register" => "registration#create"
 

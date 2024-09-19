@@ -7,7 +7,7 @@ class RegistrationController < ApplicationController
     @user = User.new(user_params)
     if @user.save
       session[:user_id] = @user.id
-      flash.now[:notice] = 'Account created successfully!'
+      flash.now[:notice] = "Account created successfully!"
       redirect_to dashboard_path, notice: "Account created successfully, watch for the validation email!"
     else
       render json: @user.errors, status: :unprocessable_entity
